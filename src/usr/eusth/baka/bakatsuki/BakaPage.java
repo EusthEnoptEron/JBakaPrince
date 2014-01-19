@@ -32,7 +32,7 @@ public class BakaPage {
 	}
 
 	public String getContent() {
-		return fetchPage(new String[] {"action=parse", "page=" + name})
+		return fetchPage(new String[] {"action=parse", "redirects=1", "page=" + name})
 				.getAsJsonObject("parse")
 				.getAsJsonObject("text")
 				.getAsJsonPrimitive("*")

@@ -3,6 +3,7 @@ package usr.eusth.baka.bakatsuki;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import usr.eusth.baka.BakaTsuki;
 import usr.eusth.baka.pdf.Config;
 
@@ -22,7 +23,12 @@ public class Project extends BakaPage {
 
 		Document document = Jsoup.parseBodyFragment(getContent());
 		for(Element el: document.body().select("a:contains(Illustrations)")) {
-			volumes.add(new Volume(el.parents().select("ul").first()));
+			Element ul = el.parents().not(":not(ul)").first();
+			if(ul != null) {
+				volumes.add(new Volume(ul));
+			} else {
+				System.out.println("Can't parse volume.");
+			}
 		}
 	}
 

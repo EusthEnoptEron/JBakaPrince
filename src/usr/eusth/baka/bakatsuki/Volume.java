@@ -31,7 +31,7 @@ public class Volume {
 		title = root.select(".headline, .mw-headline").text().replaceAll("\\(.*$", "").trim();
 
 		for(Element el : ul.select("li")) {
-			Element link = el.select("a").first();
+			Element link = el.select("a:not(.new)").first();
 			if(link == null) continue;
 
 			String name = link.attr("href").replaceAll("^.+title=", "");
@@ -70,6 +70,7 @@ public class Volume {
 	}
 
 	private boolean isHeader(Element el) {
+		if(el == null) return false;
 		return el.tagName().equals("h2") || el.tagName().equals("h3") || el.tagName().equals("h4");
 	}
 

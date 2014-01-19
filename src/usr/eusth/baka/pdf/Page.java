@@ -97,7 +97,7 @@ public class Page {
 			if(title == null)
 				title = name;
 
-			BakaPage page = new BakaPage(getFullName(true), changeDate);
+			BakaPage page = new BakaPage(getFullName(false), changeDate);
 
 			html = prepareHtml(page.getContent());
 		}
@@ -135,7 +135,7 @@ public class Page {
 			Image image = new Image(BakaTsuki.getAbsolute(src));
 			image.setSashie(true);
 
-			Element node = a.parents().select(".thumb").first();
+			Element node = a.parents().not(":not(.thumb)").first();
 			if(node == null) node = a;
 
 

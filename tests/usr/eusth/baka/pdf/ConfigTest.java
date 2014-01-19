@@ -9,7 +9,7 @@ import usr.eusth.baka.PrinceDocument;
 public class ConfigTest {
 	@Test
 	public void testSerialization() throws Exception {
-		Config config = new Config(this.getClass().getClassLoader().getResource("hakomari5.json"));
+		Config config = new Config(this.getClass().getClassLoader().getResource("asura.json"));
 		PrinceDocument doc = new PrinceDocument(config);
 		doc.create("test.pdf");
 	}

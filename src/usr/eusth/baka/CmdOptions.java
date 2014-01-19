@@ -32,6 +32,7 @@ public class CmdOptions {
 							break;
 						case "--nocache":
 							noCache = true;
+							Cache.noCache = true;
 							break;
 						case "-p":
 							princePath = args[++i];

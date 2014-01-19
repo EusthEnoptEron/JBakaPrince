@@ -18,7 +18,7 @@ public class JBakaPrinceTest {
 
 	@Test
 	public void testParser() throws Exception {
-		CmdOptions opts = new CmdOptions(new String[] {"parse",  "-project", "Gekkou"} );
+		CmdOptions opts = new CmdOptions(new String[] {"parse",  "-project", "Boku_wa_tomodachi_ga_sukunai"} );
 		Command cmd = new ParserCommand();
 		cmd.execute(opts);
 
