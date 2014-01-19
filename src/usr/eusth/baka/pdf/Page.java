@@ -5,14 +5,11 @@ import com.google.gson.JsonObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import sun.reflect.Reflection;
 import usr.eusth.baka.BakaTsuki;
 import usr.eusth.baka.bakatsuki.BakaPage;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.*;
@@ -25,15 +22,15 @@ public class Page {
 	private final static Page defaultPage = new Page();
 
 	private String prefix = "";
-	private String name;
-	private String title = null;
+	private String name = "";
+	private String title = "";
 
 	private boolean pagebreak = true;
 	private boolean notitle = false;
 	private boolean noheader = false;
 
 	private String wiki = BakaTsuki.BASE_PATH;
-	private boolean entryPicture = false;
+	private boolean entrypicture = false;
 
 	private boolean fetched = false;
 	private String html = "";
@@ -45,8 +42,12 @@ public class Page {
 	}
 
 	public Page() {
-
 	}
+
+	public void setNotitle(boolean notitle) {
+		this.notitle = notitle;
+	}
+
 	public void applyConfig(JsonObject values) {
 		for (Map.Entry<String, JsonElement> entry : values.entrySet()) {
 			switch (entry.getKey()) {
@@ -57,7 +58,7 @@ public class Page {
 				case "notitle": notitle = entry.getValue().getAsBoolean(); break;
 				case "noheader": noheader = entry.getValue().getAsBoolean(); break;
 				case "wiki": wiki = entry.getValue().getAsString(); break;
-				case "entrypicture": entryPicture = entry.getValue().getAsBoolean(); break;
+				case "entrypicture": entrypicture = entry.getValue().getAsBoolean(); break;
 			}
 		}
 	}
@@ -138,7 +139,7 @@ public class Page {
 			if(node == null) node = a;
 
 
-			if (images.size() == 0 && entryPicture)
+			if (images.size() == 0 && entrypicture)
 			{
 				// We can view it as a full-fledged image since we don't need to worry about text-flow
 				image.setSashie(false);
@@ -260,10 +261,12 @@ public class Page {
 
 					if(field.getType().equals(String.class)) {
 						obj.addProperty(prop, (String)field.get(this));
-					} else if(field.getType().equals(Boolean.class)) {
+					} else if(field.getType().equals(Boolean.TYPE)) {
 						obj.addProperty(prop, (Boolean)field.get(this));
-					} else if(field.getType().equals(Integer.class)) {
+					} else if(field.getType().equals(Integer.TYPE)) {
 						obj.addProperty(prop, (Integer) field.get(this));
+					} else {
+						System.out.println("Weve got a problem");
 					}
 				}
 			} catch (NoSuchFieldException e) {
@@ -273,6 +276,10 @@ public class Page {
 			}
 		}
 		return obj;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 }
 

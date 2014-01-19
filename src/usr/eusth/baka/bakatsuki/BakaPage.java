@@ -27,6 +27,10 @@ public class BakaPage {
 		this.name = name;
 	}
 
+	public String getName() {
+		return name;
+	}
+
 	public String getContent() {
 		return fetchPage(new String[] {"action=parse", "page=" + name})
 				.getAsJsonObject("parse")

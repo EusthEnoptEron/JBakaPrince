@@ -85,4 +85,8 @@ public class BakaTsuki {
 	public static InputStream getResourceAsStream(String resource) throws IOException {
 		return getResource(resource).openStream();
 	}
+
+	public static String getUrl(String name) {
+		return BASE_PATH + "/index.php?title=" + name;
+	}
 }

@@ -30,6 +30,15 @@ public class Image {
 	private static final float SHEET_HEIGHT = 8.3f;
 
 
+	protected Image() {
+	}
+
+	public static Image makeUnloadedImage(String url) {
+		Image img = new Image();
+		img.url = url;
+
+		return img;
+	}
 	public Image(String url) {
 		this.url = url = url.replace(" ", "%20");
 		id = "i" + Cache.getResourceId(url);

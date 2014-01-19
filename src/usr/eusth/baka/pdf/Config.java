@@ -31,6 +31,19 @@ public class Config {
 	private JsonObject config;
 	private URL base;
 
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setProject(String project) {
+		this.project = project;
+	}
+
+
+	public Config() {
+
+	}
 	public Config(URL url) {
 		base = url;
 
@@ -178,7 +191,7 @@ public class Config {
 	}
 
 	public List<Image> getImages() {
-		return Collections.unmodifiableList(images);
+		return images;
 	}
 
 	public List<Page> getPages() {

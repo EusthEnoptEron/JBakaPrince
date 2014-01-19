@@ -9,7 +9,7 @@ import java.util.List;
 public class CmdOptions {
 	public boolean isParser = false;
 	public boolean isConverter = false;
-	public String volume = null;
+	public String project = null;
 	public boolean noCache = false;
 
 
@@ -27,8 +27,8 @@ public class CmdOptions {
 
 				if(arg.startsWith("-")) {
 					switch (arg) {
-						case "-v":
-							volume = args[++i];
+						case "-project":
+							project = args[++i];
 							break;
 						case "--nocache":
 							noCache = true;
@@ -83,7 +83,7 @@ public class CmdOptions {
 				"\n" +
 				"  parse:\n" +
 				"  -o                         output path\n" +
-				"  -v                         volume name\n" +
+				"  -v                         project name\n" +
 				"\n" +
 				"  convert:\n" +
 				"  -p                         the PATH where PrinceXML is located. Leave away\n" +
