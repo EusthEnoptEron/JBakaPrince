@@ -15,6 +15,9 @@ public class JBakaPrince
 
 		}
 
+		if(options.noCache) {
+			Cache.noCache = true;
+		}
 		if(command != null) {
 			if(command.isValid(options)) {
 				command.execute(options);

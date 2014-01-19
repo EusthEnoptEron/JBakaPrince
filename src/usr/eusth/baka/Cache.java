@@ -10,6 +10,8 @@ import java.util.Date;
  * Created by Simon on 14/01/18.
  */
 public class Cache {
+	public static boolean noCache = false;
+
 	public static String getResourceId(String url) {
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
@@ -40,7 +42,7 @@ public class Cache {
 	public static BufferedInputStream fetch(String uri, Date threshold) {
 		File resourcePath = getResourcePath(uri);
 
-		if(resourcePath.exists() && (threshold == null || resourcePath.lastModified() > threshold.getTime()) ) {
+		if(!noCache && resourcePath.exists() && (threshold == null || resourcePath.lastModified() > threshold.getTime()) ) {
 			System.out.println("Fetching " + uri + " from cache");
 			try {
 				return new BufferedInputStream(new FileInputStream(resourcePath));
