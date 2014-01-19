@@ -30,7 +30,7 @@ public class PrinceDocument {
 
 	public PrinceDocument(Config config) {
 		// Find prince path
-		String[] paths = System.getenv("PATH").split(";");
+		String[] paths = System.getenv("PATH").split(";|:");
 		String princePath = null;
 		for(String path : paths) {
 			File winBin = new File(path, "prince.exe");

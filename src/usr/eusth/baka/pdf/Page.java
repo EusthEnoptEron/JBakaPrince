@@ -5,10 +5,12 @@ import com.google.gson.JsonObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import sun.reflect.Reflection;
 import usr.eusth.baka.BakaTsuki;
 import usr.eusth.baka.bakatsuki.BakaPage;
 
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Field;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URLDecoder;
@@ -19,6 +21,9 @@ import java.util.*;
  * Created by Simon on 14/01/18.
  */
 public class Page {
+
+	private final static Page defaultPage = new Page();
+
 	private String prefix = "";
 	private String name;
 	private String title = null;
@@ -240,6 +245,34 @@ public class Page {
 
 	public Date getChangeDate() {
 		return changeDate;
+	}
+
+	public JsonElement toJSON() {
+		JsonObject obj = new JsonObject();
+		String[] properties = new String[]{"prefix", "name", "title", "pagebreak", "notitle", "noheader", "wiki", "entrypicture"};
+
+		for(String prop: properties) {
+			try {
+				Field field = this.getClass().getDeclaredField(prop);
+				Object v1 = field.get(this);
+				Object v2 = field.get(defaultPage);
+				if(!field.get(this).equals(field.get(defaultPage))) {
+
+					if(field.getType().equals(String.class)) {
+						obj.addProperty(prop, (String)field.get(this));
+					} else if(field.getType().equals(Boolean.class)) {
+						obj.addProperty(prop, (Boolean)field.get(this));
+					} else if(field.getType().equals(Integer.class)) {
+						obj.addProperty(prop, (Integer) field.get(this));
+					}
+				}
+			} catch (NoSuchFieldException e) {
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			}
+		}
+		return obj;
 	}
 }
 

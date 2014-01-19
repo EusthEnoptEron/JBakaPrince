@@ -1,8 +1,6 @@
 package usr.eusth.baka.pdf;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
 import usr.eusth.baka.BakaTsuki;
 
 import java.io.IOException;
@@ -199,4 +197,33 @@ public class Config {
 		return project;
 	}
 
+	public JsonObject toJSON() {
+		JsonObject obj = new JsonObject();
+		Gson gson = new Gson();
+
+		obj.addProperty("title", title);
+		obj.addProperty("project", project);
+
+		// Add contributors
+		for(String key: contributors.keySet()) {
+			if(!contributors.get(key).isEmpty())
+				obj.add(key, gson.toJsonTree(contributors.get(key)));
+		}
+
+		JsonArray jsonPages = new JsonArray();
+		obj.add("pages", jsonPages);
+		for(Page page: pages) {
+			jsonPages.add(page.toJSON());
+		}
+
+		JsonArray jsonImages = new JsonArray();
+		obj.add("images", jsonImages);
+		for(Image image: images) {
+			jsonImages.add(image.toJSON());
+		}
+
+
+
+		return obj;
+	}
 }

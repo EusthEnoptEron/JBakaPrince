@@ -1,9 +1,6 @@
 package usr.eusth.baka.pdf;
 
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParseException;
+import com.google.gson.*;
 import usr.eusth.baka.BakaTsuki;
 import usr.eusth.baka.Cache;
 
@@ -122,6 +119,10 @@ public class Image {
 
 	public void setSashie(boolean sashie) {
 		this.sashie = sashie;
+	}
+
+	public JsonElement toJSON() {
+		return new JsonPrimitive(url);
 	}
 
 
