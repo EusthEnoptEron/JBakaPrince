@@ -2,17 +2,12 @@ package usr.eusth.baka.pdf;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.sun.jndi.toolkit.url.Uri;
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-import org.jsoup.select.Selector;
-import sun.misc.Regexp;
 import usr.eusth.baka.BakaTsuki;
 import usr.eusth.baka.bakatsuki.BakaPage;
-import javax.swing.text.html.parser.Parser;
+
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
@@ -231,13 +226,7 @@ public class Page {
 		// Hakomari specific
 		for (Element star : dom.select("p:contains(✵)"))
 		{
-			try {
-				star.html("<img src=\"" + (this.getClass().getClassLoader().getResource("blackstar.jpg").toURI().toURL().toString()) + "\">");
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
-			} catch (URISyntaxException e) {
-				e.printStackTrace();
-			}
+			star.html("<img src=\"" + (BakaTsuki.getResource("assets/blackstar.jpg").toString()) + "\">");
 		}
 
 		return document.body().html();

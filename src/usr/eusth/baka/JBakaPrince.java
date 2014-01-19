@@ -1,12 +1,31 @@
 package usr.eusth.baka;
 
-import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import usr.eusth.baka.commands.Command;
+import usr.eusth.baka.commands.ConvertCommand;
 
 public class JBakaPrince
 {
 	public static void main(String[] args) {
+		CmdOptions options = new CmdOptions(args);
+
+		Command command = null;
+		if(options.isConverter) {
+			command = new ConvertCommand();
+		} else if(options.isParser) {
+
+		}
+
+		if(command != null) {
+			if(command.isValid(options)) {
+				command.execute(options);
+			} else {
+				System.out.println("INVALID OPTIONS");
+			}
+		} else {
+			System.out.println("COMMAND NOT IMPLEMENTED");
+		}
+
+
 		//File path = new File("http://www.google.ch/file.json");
 
 		//System.out.println(path.toFile().getAbsoluteFile());
@@ -98,7 +117,7 @@ public class JBakaPrince
 //	private static void ShowHelp(OptionSet p)
 //	{
 //		System.out.println("Usage: bakaprince [OPTIONS]+ [parse|convert] Config-path");
-//		System.out.println("Create a PDF from a Baka-Tsuki project.");
+//		System.out.println("create a PDF from a Baka-Tsuki project.");
 //		System.out.println();
 //		System.out.println("Options:");
 //		p.WriteOptionDescriptions(Console.Out);

@@ -8,9 +8,7 @@ import usr.eusth.baka.BakaTsuki;
 import usr.eusth.baka.Cache;
 
 import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
 import java.awt.image.BufferedImage;
-import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;

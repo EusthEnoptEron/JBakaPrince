@@ -5,7 +5,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import usr.eusth.baka.pdf.Image;
-import usr.eusth.baka.pdf.Page;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -73,5 +72,17 @@ public class BakaTsuki {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public static URL getResource(String resource)  {
+		try {
+			return new URL(BakaTsuki.class.getProtectionDomain().getCodeSource().getLocation(), resource);
+		} catch (MalformedURLException e) {
+			return null;
+		}
+	}
+
+	public static InputStream getResourceAsStream(String resource) throws IOException {
+		return getResource(resource).openStream();
 	}
 }

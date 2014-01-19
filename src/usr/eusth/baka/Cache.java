@@ -1,15 +1,9 @@
 package usr.eusth.baka;
 
-import sun.misc.IOUtils;
-
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.charset.Charset;
-import java.nio.charset.UnsupportedCharsetException;
-import java.nio.file.DirectoryIteratorException;
 import java.security.MessageDigest;
-import java.util.Calendar;
 import java.util.Date;
 
 /**

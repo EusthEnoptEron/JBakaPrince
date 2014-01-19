@@ -5,12 +5,6 @@ import com.itextpdf.text.pdf.PdfCopy;
 import com.itextpdf.text.pdf.PdfImportedPage;
 import com.itextpdf.text.pdf.PdfReader;
 import com.princexml.Prince;
-import org.eclipse.core.internal.utils.FileUtil;
-import org.jibx.schema.codegen.extend.DefaultNameConverter;
-import org.jibx.schema.codegen.extend.NameConverter;
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -20,7 +14,10 @@ import usr.eusth.baka.pdf.Page;
 
 import java.io.*;
 import java.text.DateFormat;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Simon on 14/01/18.
@@ -63,10 +60,9 @@ public class PrinceDocument {
 		prince.setHTML(true);
 
 		// Add default stylesheets
-		ClassLoader cl = this.getClass().getClassLoader();
-		prince.addStyleSheet(cl.getResource("mediawiki.css").toString());
-		prince.addStyleSheet(cl.getResource("book.css").toString());
-		prince.addStyleSheet(cl.getResource("ruby.css").toString());
+		prince.addStyleSheet(BakaTsuki.getResource("assets/mediawiki.css").toString());
+		prince.addStyleSheet(BakaTsuki.getResource("assets/book.css").toString());
+		prince.addStyleSheet(BakaTsuki.getResource("assets/ruby.css").toString());
 
 		// Add additional stylesheets
 		for (String path : config.getStyleSheets())
@@ -77,7 +73,7 @@ public class PrinceDocument {
 		this.config = config;
 	}
 
-	public void Create(String path) {
+	public void create(String path) {
 		// Set base url to the Wiki URL (for images that we didn't catch, etc.)
 		prince.setBaseURL(config.getBaseUrl());
 		File output = new File(path).getAbsoluteFile();
@@ -180,10 +176,9 @@ public class PrinceDocument {
 	}
 
 	private void appendDisclaimer(StringBuilder builder) {
-		NameConverter inflector = new DefaultNameConverter();
 
 		try {
-			Document doc = Jsoup.parse(this.getClass().getClassLoader().getResourceAsStream("disclaimer.html"), "UTF-8", "");
+			Document doc = Jsoup.parse(BakaTsuki.getResourceAsStream("assets/disclaimer.html"), "UTF-8", "");
 			Element table = doc.select("table#contributors").first();
 
 			// Append header row
@@ -198,7 +193,7 @@ public class PrinceDocument {
 				key = key.substring(0, 1).toUpperCase() + key.substring(1);
 				if (names.size() == 1)
 				{
-					key = inflector.depluralize(key);
+					key = key.substring(0, key.length() - 1);
 				}
 				else if (names.size() == 0)
 				{

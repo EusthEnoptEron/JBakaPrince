@@ -22,7 +22,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="prince" level="project" />
-    <orderEntry type="library" name="org.jibx:jibx-tools:1.2.5" level="project" />
     <orderEntry type="library" name="itextpdf-5.4.5" level="project" />
   </component>
 </module>
