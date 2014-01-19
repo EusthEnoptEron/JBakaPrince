@@ -12,7 +12,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
+import java.net.URLEncoder;
 
 /**
  * Created by Simon on 14/01/18.
@@ -32,7 +34,7 @@ public class Image {
 
 
 	public Image(String url) {
-		this.url = url;
+		this.url = url = url.replace(" ", "%20");
 		id = "i" + Cache.getResourceId(url);
 
 		try( InputStream stream = Cache.fetch(url) ) {

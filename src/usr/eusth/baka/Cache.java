@@ -39,10 +39,11 @@ public class Cache {
 	 * @param threshold when the cache is older than this threshold, we will fetch the new version
 	 * @return
 	 */
-	public static BufferedInputStream fetch(String uri, Date threshold) {
+	public static BufferedInputStream fetch(String uri, Date threshold, boolean forceCache) {
 		File resourcePath = getResourcePath(uri);
+		boolean mayUseCache = !noCache || forceCache;
 
-		if(!noCache && resourcePath.exists() && (threshold == null || resourcePath.lastModified() > threshold.getTime()) ) {
+		if(mayUseCache && resourcePath.exists() && (threshold == null || resourcePath.lastModified() > threshold.getTime()) ) {
 			System.out.println("Fetching " + uri + " from cache");
 			try {
 				return new BufferedInputStream(new FileInputStream(resourcePath));
@@ -68,7 +69,7 @@ public class Cache {
 					e.printStackTrace();
 					return null;
 				}
-				return fetch(uri);
+				return fetch(uri, null, true);
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
 			}
@@ -77,6 +78,6 @@ public class Cache {
 	}
 
 	public static BufferedInputStream fetch(String uri) {
-		return fetch(uri, null);
+		return fetch(uri, null, false);
 	}
 }

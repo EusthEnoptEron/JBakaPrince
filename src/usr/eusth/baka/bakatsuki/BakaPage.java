@@ -38,7 +38,7 @@ public class BakaPage {
 	private JsonObject fetchPage(String[] args) {
 		String url = BakaTsuki.getApiPath(args);
 
-		try(InputStream stream = Cache.fetch(url, changeDate);
+		try(InputStream stream = Cache.fetch(url, changeDate, false);
 			InputStreamReader reader = new InputStreamReader(stream))
 		{
 			JsonParser parser = new JsonParser();
