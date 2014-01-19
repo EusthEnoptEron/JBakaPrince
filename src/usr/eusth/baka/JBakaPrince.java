@@ -2,6 +2,7 @@ package usr.eusth.baka;
 
 import usr.eusth.baka.commands.Command;
 import usr.eusth.baka.commands.ConvertCommand;
+import usr.eusth.baka.commands.ParserCommand;
 
 public class JBakaPrince
 {
@@ -12,7 +13,7 @@ public class JBakaPrince
 		if(options.isConverter) {
 			command = new ConvertCommand();
 		} else if(options.isParser) {
-
+			command = new ParserCommand();
 		}
 
 		if(options.noCache) {

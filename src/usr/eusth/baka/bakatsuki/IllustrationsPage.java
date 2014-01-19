@@ -56,6 +56,9 @@ public class IllustrationsPage extends BakaPage {
 			float saturation = 0;
 			int threshold = 100;
 			Raster data = image.getData();
+			if(image.getType() == BufferedImage.TYPE_BYTE_GRAY || image.getType() == BufferedImage.TYPE_USHORT_GRAY)
+				return false;
+
 			for (int x = 0; x < data.getWidth(); x++)
 			{
 				for (int y = 0; y < data.getHeight(); y++)
