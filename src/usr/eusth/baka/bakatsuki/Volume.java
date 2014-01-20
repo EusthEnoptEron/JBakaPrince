@@ -17,18 +17,25 @@ public class Volume {
 	private final List<Chapter> chapters = new ArrayList<>();
 	private IllustrationsPage illustrationsPage = null;
 	String title = "";
+	private static int counter = 1;
+
 	public Volume(Element ul) {
-		Element root = ul;
+		Element header = ul;
 
-		while(!root.parent().tagName().equals("body")) {
-			root = root.parent();
+		while(!header.tagName().equals("body")) {
+			if(isHeader(header.previousElementSibling())) {
+				header = header.previousElementSibling();
+				break;
+			} else {
+				header = header.parent();
+			}
 		}
+		if(!header.tagName().equals("body")) {
 
-		while(!isHeader(root)) {
-			root = root.previousElementSibling();
+			title = header.select(".headline, .mw-headline").text().replaceAll("\\(.*$", "").trim();
+		} else {
+			title = "Unknown Volume " + counter++;
 		}
-
-		title = root.select(".headline, .mw-headline").text().replaceAll("\\(.*$", "").trim();
 
 		for(Element el : ul.select("li")) {
 			Element link = el.select("a:not(.new)").first();
@@ -42,6 +49,7 @@ public class Volume {
 				chapters.add(new Chapter(name, link.text()));
 			}
 		}
+
 	}
 
 	public Config getConfig(Project project) {
@@ -85,7 +93,13 @@ public class Volume {
 		}
 
 		public boolean startsWithTitle() {
-			return isHeader(document.body().children().first());
+			Element firstNode = document.body().children().first();
+			if(firstNode == null) return false;
+			if(firstNode.tagName().equals("div") && firstNode.attr("id") != null && firstNode.attr("id").equals("toc")) {
+				firstNode = firstNode.nextElementSibling();
+			}
+
+			return isHeader(firstNode);
 		}
 	}
 

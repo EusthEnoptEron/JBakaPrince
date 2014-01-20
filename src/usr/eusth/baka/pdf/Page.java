@@ -73,20 +73,20 @@ public class Page {
 		return Collections.unmodifiableList(images);
 	}
 	public String getFullName(boolean forUrl) {
-		String fullname = prefix + name;
-		if(forUrl) {
-			try {
-				return URLEncoder.encode(fullname, "UTF-8");
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			}
-		} else {
-			try {
-				return URLDecoder.decode(fullname.replace("_", " "), "UTF-8");
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			}
-		}
+//		String fullname = prefix + name;
+//		if(forUrl) {
+//			try {
+//				return URLEncoder.encode(fullname, "UTF-8");
+//			} catch (UnsupportedEncodingException e) {
+//				e.printStackTrace();
+//			}
+//		} else {
+//			try {
+//				return URLDecoder.decode(fullname.replace("_", " "), "UTF-8");
+//			} catch (UnsupportedEncodingException e) {
+//				e.printStackTrace();
+//			}
+//		}
 		return prefix + name;
 	}
 
@@ -104,6 +104,7 @@ public class Page {
 	}
 
 	private String prepareHtml(String html) {
+		System.out.println("Preparing " + name);
 		// Make title
 		if (!notitle)
 		{
@@ -160,7 +161,7 @@ public class Page {
 		for (Element sup : dom.select("sup.reference"))
 		{
 			Element footnote = document.createElement("span").addClass("fn");
-			Element oldFootnote = dom.select("#" + sup.attr("id").replace("_ref-", "_note-")).first();
+			Element oldFootnote = dom.select(sup.select("a").attr("href")).first();
 
 			footnote.html(oldFootnote.select(".reference-text").html());
 

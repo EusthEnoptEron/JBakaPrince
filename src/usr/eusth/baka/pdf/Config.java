@@ -153,6 +153,8 @@ public class Config {
 	}
 
 	private JsonObject getPagesStats() {
+		if(pages.size() == 0) return new JsonObject();
+
 		String[] conf = new String[4];
 		conf[0] = "action=query";
 		conf[1] = "prop=info";
@@ -165,8 +167,8 @@ public class Config {
 		if(pages.size() > 0) titles = titles.substring(0, titles.length() - 1);
 
 		conf[3] = titles;
-
 		return BakaTsuki.call(conf).getAsJsonObject("query").getAsJsonObject("pages");
+
 	}
 
 	private void parseImages() {

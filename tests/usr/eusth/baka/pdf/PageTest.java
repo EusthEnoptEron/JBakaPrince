@@ -13,6 +13,5 @@ public class PageTest {
 		page.setName("Utsuro_no_Hako:Volume2_Prologue");
 		String html = page.getHtml();
 
-
 	}
 }

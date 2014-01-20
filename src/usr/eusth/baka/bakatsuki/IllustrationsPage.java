@@ -55,23 +55,23 @@ public class IllustrationsPage extends BakaPage {
 			BufferedImage image = ImageIO.read(img);
 			float saturation = 0;
 			int threshold = 100;
-			Raster data = image.getData();
-
 			if(image.getType() == BufferedImage.TYPE_BYTE_GRAY || image.getType() == BufferedImage.TYPE_USHORT_GRAY)
 				return false;
 
-			for (int x = 0; x < data.getWidth(); x++)
+			for (int x = 0; x < image.getWidth(); x++)
 			{
-				for (int y = 0; y < data.getHeight(); y++)
+				for (int y = 0; y < image.getHeight(); y++)
 				{
-					int[] rgb = data.getPixel(x, y, new int[3]);
-					float[] hsb = Color.RGBtoHSB(rgb[0], rgb[1], rgb[2], null);
+					Color col = new Color(image.getRGB(x, y));
+
+					float[] hsb = Color.RGBtoHSB(col.getRed(), col.getGreen(), col.getBlue(), null);
 
 					saturation += hsb[1];
 
 					if (saturation > threshold) {
 						return true;
 					}
+
 				}
 			}
 		} catch (IOException e) {
