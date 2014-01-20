@@ -45,7 +45,7 @@ public class Cache {
 		boolean mayUseCache = !noCache || forceCache;
 
 		if(mayUseCache && resourcePath.exists() && (threshold == null || resourcePath.lastModified() > threshold.getTime()) ) {
-			System.out.println("Fetching " + uri + " from cache");
+			BakaTsuki.debug("Fetching " + uri + " from cache");
 			try {
 				return new BufferedInputStream(new FileInputStream(resourcePath));
 			} catch (FileNotFoundException e) {
@@ -54,7 +54,7 @@ public class Cache {
 		} else {
 			uri = uri.replaceAll("\\s", "%20");
 
-			System.out.println("Fetching " + uri);
+			BakaTsuki.debug("Fetching " + uri);
 			try {
 				URL url = new URL(uri);
 				if(!resourcePath.getParentFile().exists()) {

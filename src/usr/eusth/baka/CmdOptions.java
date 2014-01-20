@@ -9,7 +9,8 @@ import java.util.List;
 public class CmdOptions {
 	public boolean isParser = false;
 	public boolean isConverter = false;
-	public String project = null;
+	public boolean isLister = false;
+	public String volume = null;
 	public boolean noCache = false;
 
 
@@ -27,12 +28,11 @@ public class CmdOptions {
 
 				if(arg.startsWith("-")) {
 					switch (arg) {
-						case "-project":
-							project = args[++i];
+						case "-volume":
+							volume = args[++i];
 							break;
 						case "--nocache":
 							noCache = true;
-							Cache.noCache = true;
 							break;
 						case "-p":
 							princePath = args[++i];
@@ -57,6 +57,9 @@ public class CmdOptions {
 						case "convert":
 							isConverter = true;
 							break;
+						case "list":
+							isLister = true;
+							break;
 						default:
 							params.add(arg);
 							break;
@@ -74,9 +77,9 @@ public class CmdOptions {
 		this.params = params.toArray(new String[params.size()]);
 	}
 
-	private void printHelp() {
-		System.out.println("Usage: bakaprince [OPTIONS]+ [parse|convert] [project-name|json-file]\n" +
-				"Create a PDF from a Baka-Tsuki project.\n" +
+	void printHelp() {
+		System.out.println("Usage: bakaprince [OPTIONS]+ [parse|convert] [volume-name|json-file]\n" +
+				"Create a PDF from a Baka-Tsuki volume.\n" +
 				"\n" +
 				"Options:\n" +
 				"  -f, --nocache              force re-download of files\n" +
@@ -84,7 +87,7 @@ public class CmdOptions {
 				"\n" +
 				"  parse:\n" +
 				"  -o                         output path\n" +
-				"  -v                         project name\n" +
+				"  -v                         volume name\n" +
 				"\n" +
 				"  convert:\n" +
 				"  -p                         the PATH where PrinceXML is located. Leave away\n" +

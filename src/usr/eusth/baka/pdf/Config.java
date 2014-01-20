@@ -65,9 +65,9 @@ public class Config {
 			{
 				title = config.get("title").getAsString();
 			}
-			if (config.has("project"))
+			if (config.has("volume"))
 			{
-				project = config.get("project").getAsString();
+				project = config.get("volume").getAsString();
 			}
 
 		} catch (IOException e) {
@@ -217,7 +217,7 @@ public class Config {
 		Gson gson = new Gson();
 
 		obj.addProperty("title", title);
-		obj.addProperty("project", project);
+		obj.addProperty("volume", project);
 
 		// Add contributors
 		for(String key: contributors.keySet()) {
@@ -240,5 +240,9 @@ public class Config {
 
 
 		return obj;
+	}
+
+	public String getProposedFileName() {
+		return getTitle().replaceAll("\\W", "_") + ".json";
 	}
 }

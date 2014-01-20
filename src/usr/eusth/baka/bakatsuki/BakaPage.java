@@ -35,13 +35,14 @@ public class BakaPage {
 
 	public String getContent() {
 		try {
+			BakaTsuki.info("Fetching page \"" + name + "\"...");
 			return fetchPage(new String[] {"action=parse", "redirects=1", "page=" + name})
 					.getAsJsonObject("parse")
 					.getAsJsonObject("text")
 					.getAsJsonPrimitive("*")
 					.getAsString();
 		} catch(NullPointerException e) {
-			System.err.println("Didn't find page: "+ name);
+			BakaTsuki.error("Didn't find page: "+ name);
 			return "";
 		}
 

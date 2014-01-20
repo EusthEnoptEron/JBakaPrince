@@ -2,7 +2,8 @@ package usr.eusth.baka;
 
 import usr.eusth.baka.commands.Command;
 import usr.eusth.baka.commands.ConvertCommand;
-import usr.eusth.baka.commands.ParserCommand;
+import usr.eusth.baka.commands.ListCommand;
+import usr.eusth.baka.commands.ParseCommand;
 
 public class JBakaPrince
 {
@@ -13,17 +14,21 @@ public class JBakaPrince
 		if(options.isConverter) {
 			command = new ConvertCommand();
 		} else if(options.isParser) {
-			command = new ParserCommand();
+			command = new ParseCommand();
+		} else if(options.isLister) {
+			command = new ListCommand();
 		}
 
 		if(options.noCache) {
 			Cache.noCache = true;
 		}
+
 		if(command != null) {
 			if(command.isValid(options)) {
 				command.execute(options);
 			} else {
 				System.out.println("INVALID OPTIONS");
+				options.printHelp();
 			}
 		} else {
 			System.out.println("COMMAND NOT IMPLEMENTED");
@@ -121,7 +126,7 @@ public class JBakaPrince
 //	private static void ShowHelp(OptionSet p)
 //	{
 //		System.out.println("Usage: bakaprince [OPTIONS]+ [parse|convert] Config-path");
-//		System.out.println("create a PDF from a Baka-Tsuki project.");
+//		System.out.println("create a PDF from a Baka-Tsuki volume.");
 //		System.out.println();
 //		System.out.println("Options:");
 //		p.WriteOptionDescriptions(Console.Out);

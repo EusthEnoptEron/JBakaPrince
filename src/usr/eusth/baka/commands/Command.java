@@ -8,5 +8,4 @@ import usr.eusth.baka.CmdOptions;
 public interface Command {
 	void execute(CmdOptions options);
 	boolean isValid(CmdOptions options);
-
 }

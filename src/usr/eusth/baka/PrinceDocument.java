@@ -87,14 +87,14 @@ public class PrinceDocument {
 		initBuilder(htmlBuilder);
 
 		// Compile color images
-		System.out.println("Creating color pages...");
+		BakaTsuki.info("Creating color pages...");
 		for (Image image : config.getImages())
 		{
 			htmlBuilder.append(image.getHtml());
 		}
 
 
-		System.out.println("Compiling chapters...");
+		BakaTsuki.info("Compiling chapters...");
 		// Compile Html
 		for (Page page : config.getPages())
 		{
@@ -103,7 +103,7 @@ public class PrinceDocument {
 
 		closeBuilder(htmlBuilder);
 
-		System.out.println(String.format("Writing PDF to %s...", path));
+		BakaTsuki.info(String.format("Writing PDF to %s...", path));
 
 
 		try ( InputStream in = new ByteArrayInputStream(htmlBuilder.toString().getBytes("UTF-8"));
@@ -114,12 +114,12 @@ public class PrinceDocument {
 			e.printStackTrace();
 		}
 
-		System.out.println("Cleaning...");
+		BakaTsuki.info("Cleaning...");
 		moveDisclaimer(temp, output);
 
 		temp.delete();
 
-		System.out.println("Et voilà -- your PDF is ready.");
+		BakaTsuki.info("Your PDF is ready.");
 	}
 
 	private void moveDisclaimer(File input, File output) {

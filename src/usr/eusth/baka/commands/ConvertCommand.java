@@ -1,5 +1,6 @@
 package usr.eusth.baka.commands;
 
+import usr.eusth.baka.BakaTsuki;
 import usr.eusth.baka.CmdOptions;
 import usr.eusth.baka.PrinceDocument;
 import usr.eusth.baka.pdf.Config;
@@ -22,9 +23,9 @@ public class ConvertCommand implements Command {
 			if(input.startsWith("http")) {
 				config = new Config(new URL(input));
 			} else {
-				System.out.println(new File(input).toURI().toURL());
 				config = new Config(new File(input).toURI().toURL());
 			}
+			BakaTsuki.info("Converting " + config.getTitle());
 
 
 			if(options.princePath == null) {

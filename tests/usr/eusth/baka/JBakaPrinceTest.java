@@ -2,7 +2,8 @@ package usr.eusth.baka;
 
 import org.junit.Test;
 import usr.eusth.baka.commands.Command;
-import usr.eusth.baka.commands.ParserCommand;
+import usr.eusth.baka.commands.ListCommand;
+import usr.eusth.baka.commands.ParseCommand;
 import usr.eusth.baka.pdf.Config;
 
 /**
@@ -18,9 +19,16 @@ public class JBakaPrinceTest {
 
 	@Test
 	public void testParser() throws Exception {
-		CmdOptions opts = new CmdOptions(new String[] {"parse",  "-project", "Boku_wa_tomodachi_ga_sukunai"} );
-		Command cmd = new ParserCommand();
+		CmdOptions opts = new CmdOptions(new String[] {"parse", "Boku_wa_tomodachi_ga_sukunai", "-volume", "Volume 9", "-o", "lol.json"} );
+		Command cmd = new ParseCommand();
 		cmd.execute(opts);
 
+	}
+
+	@Test
+	public void testList() throws Exception {
+		CmdOptions opts = new CmdOptions(new String[] {"list",  "Boku_wa_tomodachi_ga_sukunai"} );
+		Command cmd = new ListCommand();
+		cmd.execute(opts);
 	}
 }

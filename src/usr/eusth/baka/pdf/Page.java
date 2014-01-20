@@ -13,11 +13,16 @@ import java.lang.reflect.Field;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  * Created by Simon on 14/01/18.
  */
 public class Page {
+	// assumes the current class is called logger
+	private final static Logger LOGGER = Logger.getLogger(Page.class.getName());
 
 	private final static Page defaultPage = new Page();
 
@@ -65,7 +70,6 @@ public class Page {
 
 	public String getHtml() {
 		fetch();
-
 		return html;
 	}
 
@@ -104,7 +108,7 @@ public class Page {
 	}
 
 	private String prepareHtml(String html) {
-		System.out.println("Preparing " + name);
+		BakaTsuki.info("Typesetting " + name + "...");
 		// Make title
 		if (!notitle)
 		{

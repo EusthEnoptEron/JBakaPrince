@@ -23,13 +23,15 @@ public class Volume {
 		Element header = ul;
 
 		while(!header.tagName().equals("body")) {
-			if(isHeader(header.previousElementSibling())) {
-				header = header.previousElementSibling();
-				break;
-			} else {
+			Element candidate = findHeader(header);
+			if(candidate == null) {
 				header = header.parent();
+			} else {
+				header = candidate;
+				break;
 			}
 		}
+
 		if(!header.tagName().equals("body")) {
 
 			title = header.select(".headline, .mw-headline").text().replaceAll("\\(.*$", "").trim();
@@ -52,6 +54,21 @@ public class Volume {
 
 	}
 
+	private Element findHeader(Element el) {
+		do {
+			if(isHeader(el))
+				return el;
+			else
+				el = el.previousElementSibling();
+		} while(el != null);
+
+		return null;
+	}
+
+	public String getTitle() {
+		return title.trim();
+	}
+
 	public Config getConfig(Project project) {
 		Config conf = new Config();
 		conf.setProject(project.url);
@@ -62,6 +79,7 @@ public class Volume {
 				conf.getImages().add(img);
 			}
 		}
+
 
 		for(Chapter chapter: chapters) {
 			Page p = new Page();
@@ -84,15 +102,15 @@ public class Volume {
 
 
 	public class Chapter extends BakaPage {
-		Document document;
 		String title;
 		public Chapter(String name, String label) {
 			super(name);
 			title = label;
-			document = Jsoup.parseBodyFragment(getContent());
 		}
 
 		public boolean startsWithTitle() {
+			Document document = Jsoup.parseBodyFragment(getContent());
+
 			Element firstNode = document.body().children().first();
 			if(firstNode == null) return false;
 			if(firstNode.tagName().equals("div") && firstNode.attr("id") != null && firstNode.attr("id").equals("toc")) {

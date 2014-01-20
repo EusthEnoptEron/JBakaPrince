@@ -22,6 +22,12 @@ public class BakaTsuki {
 	public static final String DOCUMENT_ROOT = "http://www.baka-tsuki.org";
 	public static final String BASE_PATH = DOCUMENT_ROOT + "/project";
 	public static final String API_PATH  = BASE_PATH + "/api.php";
+	public static int logLevel = 1;
+
+
+	public static final int LOG_DEBUG = 0;
+	public static final int LOG_INFO = 1;
+	public static final int LOG_ERROR = 2;
 
 
 	public static String getAbsolute(String uri) {
@@ -88,5 +94,21 @@ public class BakaTsuki {
 
 	public static String getUrl(String name) {
 		return BASE_PATH + "/index.php?title=" + name;
+	}
+
+
+	public static void info(String msg) {
+		if(logLevel <= LOG_INFO)
+			System.out.println("INFO: " + msg);
+	}
+
+	public static void error(String msg) {
+		if(logLevel <= LOG_ERROR )
+			System.err.println("ERROR: " + msg);
+	}
+
+	public static void debug(String msg) {
+		if(logLevel <= LOG_DEBUG)
+			System.out.println("DEBUG: " + msg);
 	}
 }
