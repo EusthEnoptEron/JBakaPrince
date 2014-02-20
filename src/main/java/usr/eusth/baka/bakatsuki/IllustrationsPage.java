@@ -1,6 +1,5 @@
 package usr.eusth.baka.bakatsuki;
 
-import com.sun.deploy.ui.ImageLoader;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -8,12 +7,9 @@ import usr.eusth.baka.BakaTsuki;
 import usr.eusth.baka.pdf.Image;
 
 import javax.imageio.ImageIO;
-import javax.imageio.ImageReader;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.Raster;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;

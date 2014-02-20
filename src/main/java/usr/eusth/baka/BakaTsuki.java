@@ -72,7 +72,7 @@ public class BakaTsuki {
 			    InputStreamReader r = new InputStreamReader(in)) {
 				return parser.parse(r).getAsJsonObject();
 			} catch (IOException e) {
-				e.printStackTrace();
+				error("Couldn't load " + api.toString());
 			}
 		} catch (MalformedURLException e) {
 			e.printStackTrace();

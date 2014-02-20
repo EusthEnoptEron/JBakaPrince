@@ -30,11 +30,13 @@ public class PrinceDocument {
 
 	public PrinceDocument(Config config) {
 		// Find prince path
-		String[] paths = System.getenv("PATH").split(";|:");
+
+		String[] paths = System.getenv("PATH").split(File.pathSeparator);
 		String princePath = null;
 		for(String path : paths) {
 			File winBin = new File(path, "prince.exe");
 			File linBin = new File(path, "prince");
+
 			if(winBin.exists()) {
 				princePath = winBin.getAbsolutePath();
 			} else if(linBin.exists()) {
@@ -42,6 +44,9 @@ public class PrinceDocument {
 			}
 
 			if(princePath != null) break;
+			else {
+				BakaTsuki.debug("Prince not found at " + path);
+			}
 		}
 
 		if(princePath == null) throw new RuntimeException("Couldn't find prince binary!");
@@ -60,9 +65,9 @@ public class PrinceDocument {
 		prince.setHTML(true);
 
 		// Add default stylesheets
-		prince.addStyleSheet(BakaTsuki.getResource("assets/mediawiki.css").toString());
-		prince.addStyleSheet(BakaTsuki.getResource("assets/book.css").toString());
-		prince.addStyleSheet(BakaTsuki.getResource("assets/ruby.css").toString());
+		prince.addStyleSheet(BakaTsuki.getResource("resources/mediawiki.css").toString());
+		prince.addStyleSheet(BakaTsuki.getResource("resources/book.css").toString());
+		prince.addStyleSheet(BakaTsuki.getResource("resources/ruby.css").toString());
 
 		// Add additional stylesheets
 		for (String path : config.getStyleSheets())
@@ -104,7 +109,6 @@ public class PrinceDocument {
 		closeBuilder(htmlBuilder);
 
 		BakaTsuki.info(String.format("Writing PDF to %s...", path));
-
 
 		try ( InputStream in = new ByteArrayInputStream(htmlBuilder.toString().getBytes("UTF-8"));
 		      OutputStream out = new FileOutputStream(temp))
@@ -178,7 +182,7 @@ public class PrinceDocument {
 	private void appendDisclaimer(StringBuilder builder) {
 
 		try {
-			Document doc = Jsoup.parse(BakaTsuki.getResourceAsStream("assets/disclaimer.html"), "UTF-8", "");
+			Document doc = Jsoup.parse(BakaTsuki.getResourceAsStream("resources/disclaimer.html"), "UTF-8", "");
 			Element table = doc.select("table#contributors").first();
 
 			// Append header row

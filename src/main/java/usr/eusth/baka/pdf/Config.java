@@ -65,9 +65,9 @@ public class Config {
 			{
 				title = config.get("title").getAsString();
 			}
-			if (config.has("volume"))
+			if (config.has("project"))
 			{
-				project = config.get("volume").getAsString();
+				project = config.get("project").getAsString();
 			}
 
 		} catch (IOException e) {

@@ -69,7 +69,8 @@ public class Cache {
 						out.write(buffer, 0, len);
 					}
 				} catch (IOException e) {
-					e.printStackTrace();
+					BakaTsuki.error("Couldn't fetch " + url.toString());
+					//e.printStackTrace();
 					return null;
 				}
 				return fetch(uri, null, true);

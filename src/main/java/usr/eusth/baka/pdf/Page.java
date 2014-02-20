@@ -237,7 +237,7 @@ public class Page {
 		// Hakomari specific
 		for (Element star : dom.select("p:contains(✵)"))
 		{
-			star.html("<img src=\"" + (BakaTsuki.getResource("assets/blackstar.jpg").toString()) + "\">");
+			star.html("<img src=\"" + (BakaTsuki.getResource("resources/blackstar.jpg").toString()) + "\">");
 		}
 
 		return document.body().html();
