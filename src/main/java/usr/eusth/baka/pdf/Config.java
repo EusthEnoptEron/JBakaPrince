@@ -217,7 +217,7 @@ public class Config {
 		Gson gson = new Gson();
 
 		obj.addProperty("title", title);
-		obj.addProperty("volume", project);
+		obj.addProperty("project", project);
 
 		// Add contributors
 		for(String key: contributors.keySet()) {
