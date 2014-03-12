@@ -39,6 +39,9 @@ Options:
 #### title
 Set the `title` key to define what the name of the novel is. (Will be applied to the PDF config)
 
+#### project
+URL to project page.
+
 #### defaults
 Set the default config for your pages.
 
