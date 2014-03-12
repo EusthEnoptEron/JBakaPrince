@@ -19,8 +19,8 @@ public class Config {
 	private String location;
 	private HashMap<String, List<String>> contributors = new HashMap<>();
 
-	private String title;
-	private String project;
+	private String title = "Unknown";
+	private String project = "";
 
 	private List<String> styleSheets = new ArrayList<>();
 
