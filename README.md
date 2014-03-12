@@ -9,8 +9,9 @@ Installation
 First of all, make sure that you've got maven installed and correctly configured. Obviously, you'll also need a JDK.
 
 1. Clone the repo (`git clone https://github.com/EusthEnoptEron/JBakaPrince.git`)
-2. Move into the newly created folder
+2. Move into the newly created folder (`cd JBakaPrince`)
 3. Build: `mvn package`
+4. *.jar archive is now in `target/JBakaPrince.jar` -- make sure that the resources directory is always in the same folder.
 
 
 ## Usage
