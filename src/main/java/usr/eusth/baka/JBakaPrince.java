@@ -19,6 +19,9 @@ public class JBakaPrince
 			command = new ListCommand();
 		}
 
+		if(options.verbose) {
+			BakaTsuki.logLevel = BakaTsuki.LOG_DEBUG;
+		}
 		if(options.noCache) {
 			Cache.noCache = true;
 		}

@@ -126,7 +126,7 @@ public class Page {
 		Element dom = document.body().select(".content").first();
 
 		// Remove next/prev table
-		dom.select("table:contains(Back):contains(Return)").remove();
+		dom.select("table:contains(Back to)").remove();
 
 
 		// Find images
