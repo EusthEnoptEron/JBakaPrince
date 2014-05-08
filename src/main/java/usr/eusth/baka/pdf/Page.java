@@ -126,8 +126,8 @@ public class Page {
 		Element dom = document.body().select(".content").first();
 
 		// Remove next/prev table
-		dom.select("table:contains(Back to)").remove();
-
+		dom.select("table:contains(Return to)").remove();
+		dom.select("table.wikitable:contains(Volume)").remove();
 
 		// Find images
 		for(Element a: dom.select("a.image")) {
