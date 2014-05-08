@@ -41,6 +41,8 @@ public class Cache {
 	 * @return
 	 */
 	public static BufferedInputStream fetch(String uri, Date threshold, boolean forceCache) {
+		uri = uri.replaceAll("\\s", "%20");
+		
 		File resourcePath = getResourcePath(uri);
 		boolean mayUseCache = !noCache || forceCache;
 
@@ -52,8 +54,6 @@ public class Cache {
 				e.printStackTrace();
 			}
 		} else {
-			uri = uri.replaceAll("\\s", "%20");
-
 			BakaTsuki.debug("Fetching " + uri);
 			try {
 				URL url = new URL(uri);
