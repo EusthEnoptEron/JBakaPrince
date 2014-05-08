@@ -12,7 +12,7 @@ public class CmdOptions {
 	public boolean isLister = false;
 	public String volume = null;
 	public boolean noCache = false;
-
+	public boolean verbose = false;
 
 	public String princePath = null;
 	public String output = null;
@@ -29,9 +29,15 @@ public class CmdOptions {
 				if(arg.startsWith("-")) {
 					switch (arg) {
 						case "-volume":
+						case "--volume":
 							volume = args[++i];
 							break;
+						case "-v":
+						case "--verbose":
+							verbose = true;
+							break;
 						case "--nocache":
+						case "-f":
 							noCache = true;
 							break;
 						case "-p":
@@ -87,7 +93,7 @@ public class CmdOptions {
 				"\n" +
 				"  parse:\n" +
 				"  -o                         output path\n" +
-				"  -v                         volume name\n" +
+				"  --volume                   volume name\n" +
 				"\n" +
 				"  convert:\n" +
 				"  -p                         the PATH where PrinceXML is located. Leave away\n" +
