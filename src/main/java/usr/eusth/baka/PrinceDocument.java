@@ -4,6 +4,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfCopy;
 import com.itextpdf.text.pdf.PdfImportedPage;
 import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.SimpleBookmark;
 import com.princexml.Prince;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -14,10 +15,7 @@ import usr.eusth.baka.pdf.Page;
 
 import java.io.*;
 import java.text.DateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by Simon on 14/01/18.
@@ -148,6 +146,20 @@ public class PrinceDocument {
 					}
 				}
 			}
+			writer.setXmpMetadata(reader.getMetadata());
+
+			// Clone bookmarks
+			List<HashMap<String, Object>> bookmarks = SimpleBookmark.getBookmark(reader);
+
+			if (bookmarks != null)
+			{
+				writer.setOutlines(bookmarks);
+			}
+			else
+			{
+				BakaTsuki.info("No bookmarks found");
+			}
+
 
 			document.close();
 			writer.close();
