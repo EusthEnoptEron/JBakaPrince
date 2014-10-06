@@ -134,3 +134,12 @@ p {    string-set: pagecnt counter(page) }
 @prince-pdf {
     /*prince-pdf-page-layout: two-column*/
 }
+
+
+.chapterstart {
+    prince-bookmark-level: 1;
+}
+
+h1, h2, h3, h4, h5 {
+	prince-bookmark-level: none;
+}
