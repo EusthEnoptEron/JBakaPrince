@@ -1,0 +1,17 @@
+div > ul {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+li[style^="margin-left"] {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.chapterstart {
+    prince-bookmark-level: 1;
+}
+
+h1, h2, h3, h4, h5 {
+	prince-bookmark-level: none;
+}

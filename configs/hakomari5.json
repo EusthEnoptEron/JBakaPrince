@@ -1,35 +1,37 @@
 {
-  "title": "Utsuro no Hako to Zero no Maria",
+  "title": "Utsuro no Hako to Zero no Maria 5",
   "project": "http://www.baka-tsuki.org/project/index.php?title=Utsuro no Hako to Zero no Maria",
-  "stylesheets": [],
+  "stylesheets": ["hakomari5.css"],
   "defaults": {
     "notitle": true,
-    "entrypicture": true
+    "entrypicture": true,
+    "prefix": "Utsuro_no_Hako:Volume5_"
   },
   "pages": [
     {
-      "name": "Utsuro_no_Hako:Volume5_Prologue",
+      "name": "Prologue",
       "title": "Prologue"
     },
     {
-      "name": "Utsuro_no_Hako:Volume5_Before_the_Show_Begins",
+      "name": "Before_the_Show_Begins",
       "title": "Before the Show Begins"
     },
     {
-      "name": "Utsuro_no_Hako:Volume5_Scene_1",
+      "name": "Scene_1",
       "title": "Scene 1: Close-Up Goodbye"
     },
     {
-      "name": "Utsuro_no_Hako:Volume5_Scene_2",
+      "name": "Scene_2",
       "title": "Scene 2: 60 Feet and 6 Inches Apart"
     },
     {
-      "name": "Utsuro_no_Hako:Volume5_Scene_3",
+      "name": "Scene_3",
       "title": "Scene 3: Repeat, Reset, Reset"
     },
     {
-      "name": "Utsuro_no_Hako:Volume5_Author's_Notes",
-      "title": "Author's Notes"
+      "name": "Author's_Notes",
+      "title": "Author's Notes",
+      "notitle": false
     }
   ],
   "images": [
@@ -39,5 +41,17 @@
     "http://www.baka-tsuki.org/project/images/b/bb/UtsuroNoHako5_4.jpg",
     "http://www.baka-tsuki.org/project/images/7/7b/UtsuroNoHako5_5.jpg",
     "http://www.baka-tsuki.org/project/images/6/6f/UtsuroNoHako5_6.jpg"
+  ],
+  "translators": [
+    "EusthEnoptEron"
+  ],
+  "editors": [
+    "grrarr"
+  ],
+  "authors": [
+    "Eiji Mikage"
+  ],
+  "artists": [
+    "Tetsuo"
   ]
 }

@@ -1,0 +1,65 @@
+{
+    "title": "Utsuro no Hako to Zero no Maria 3",
+    "project": "http://www.baka-tsuki.org/project/index.php?title=Utsuro no Hako to Zero no Maria",
+    "images": [
+        "http://www.baka-tsuki.org/project/images/1/17/UtsuroNoHako3_1.jpg",
+        "http://www.baka-tsuki.org/project/images/6/64/UtsuroNoHako3_2.jpg",
+        "http://www.baka-tsuki.org/project/images/0/09/UtsuroNoHako3_3.jpg",
+        "http://www.baka-tsuki.org/project/images/3/3d/UtsuroNoHako3_4.jpg",
+        "http://www.baka-tsuki.org/project/images/0/07/UtsuroNoHako3_5.jpg",
+        "http://www.baka-tsuki.org/project/images/4/44/UtsuroNoHako3_6.jpg"
+    ],
+    "stylesheets": ["hakomari3.css"],
+	"defaults": {
+		"prefix": "Utsuro_no_Hako:Volume3 ",
+        "entrypicture": true
+  	},
+    "pages": [
+        {
+            "name": "Prologue",
+            "title": "Prologue",
+            "notitle": true
+        },
+        {
+            "name": "Beginning",
+            "title": "Beginning",
+            "notitle": true
+        },
+        {
+            "name": "Round_1",
+            "title": "Round 1",
+            "notitle": true
+        },
+        {
+            "name": "Round_2",
+            "title": "Round 2",
+            "notitle": true
+        },
+        {
+            "name": "Round_3",
+            "title": "Round 3",
+            "notitle": true
+        },
+        {
+            "name": "Epilogue",
+            "title": "Epilogue",
+            "notitle": true
+        },
+        {
+            "name": "Author's_Notes",
+            "title": "Author's Notes"
+        }
+    ],
+	"translators": [
+		"EusthEnoptEron"
+	],
+	"editors": [
+		"Kadi"
+	],
+	"authors": [
+		"Eiji Mikage"
+	],
+	"artists": [
+		"Tetsuo"
+	]
+}

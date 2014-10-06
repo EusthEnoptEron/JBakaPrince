@@ -1,0 +1,65 @@
+{
+  "title": "Utsuro no Hako to Zero no Maria 6",
+  "project": "http://www.baka-tsuki.org/project/index.php?title=Utsuro no Hako to Zero no Maria",
+  "stylesheets": ["hakomari5.css"],
+  "defaults": {
+    "notitle": true,
+    "entrypicture": true,
+    "prefix": "Utsuro_no_Hako:Volume 6 "
+  },
+  "pages": [
+    {
+      "name": "Intermission",
+      "title": "Intermission"
+    },
+    {
+      "name": "Before_the_Show_Begins",
+      "title": "Before the Show Begins"
+    },
+    {
+      "name": "Scene_4_(1)",
+      "title": "Scene 4: Piercing at Fifteen (1/3)"
+    },
+    {
+      "name": "Scene_4_(2)",
+      "title": "Scene 4: Piercing at Fifteen (2/3)"
+    },
+    {
+      "name": "Scene_4_(3)",
+      "title": "Scene 4: Piercing at Fifteen (3/3)"
+    },
+    {
+      "name": "After the Curtain Falls",
+      "title": "After the Curtain Falls"
+    },
+    {
+      "name": "Epilogue",
+      "title": "Epilogue"
+    },
+    {
+      "name": "Author's_Notes",
+      "title": "Author's Notes",
+      "notitle": false
+    }
+  ],
+  "images": [
+    "http://www.baka-tsuki.org/project/images/3/32/UtsuroNoHako6_1.jpg",
+    "http://www.baka-tsuki.org/project/images/2/25/UtsuroNoHako6_2.jpg",
+    "http://www.baka-tsuki.org/project/images/6/6e/UtsuroNoHako6_3.jpg",
+    "http://www.baka-tsuki.org/project/images/c/c2/UtsuroNoHako6_4.jpg",
+    "http://www.baka-tsuki.org/project/images/9/9b/UtsuroNoHako6_5.jpg",
+    "http://www.baka-tsuki.org/project/images/6/67/UtsuroNoHako6_6.jpg"
+  ],
+  "translators": [
+    "EusthEnoptEron"
+  ],
+  "editors": [
+    "grrarr"
+  ],
+  "authors": [
+    "Eiji Mikage"
+  ],
+  "artists": [
+    "Tetsuo"
+  ]
+}

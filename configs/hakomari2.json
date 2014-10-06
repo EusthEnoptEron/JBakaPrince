@@ -1,0 +1,74 @@
+{
+    "title": "Utsuro no Hako to Zero no Maria 2",
+    "project": "http://www.baka-tsuki.org/project/index.php?title=Utsuro no Hako to Zero no Maria",
+    "stylesheets": ["hakomari2.css"],
+    "images": [
+        "http://www.baka-tsuki.org/project/images/9/9d/UtsuroNoHako2_1.jpg",
+        "http://www.baka-tsuki.org/project/images/3/35/UtsuroNoHako2_2.jpg",
+        "http://www.baka-tsuki.org/project/images/7/7b/UtsuroNoHako2_3.jpg",
+        "http://www.baka-tsuki.org/project/images/0/09/UtsuroNoHako2_4.jpg",
+        "http://www.baka-tsuki.org/project/images/2/27/UtsuroNoHako2_5.jpg",
+        "http://www.baka-tsuki.org/project/images/1/13/UtsuroNoHako2_6.jpg"
+    ],
+	"defaults": {
+		"prefix": "Utsuro_no_Hako:Volume2 ",
+        "entrypicture": true
+  	},
+    "pages": [
+        {
+            "name": "Prologue",
+            "title": "Prologue",
+            "notitle": true,
+            "noheader": true
+        },
+        {
+            "name": "April_29",
+            "title": "April 29 (Wednesday) Showa Day"
+        },
+        {
+            "name": "April_30",
+            "title": "April 30 (Thursday)"
+        },
+        {
+            "name": "May_1",
+            "title": "May 1 (Friday)"
+        },
+        {
+            "name": "May_2",
+            "title": "May 2 (Saturday)"
+        },
+        {
+            "name": "May_3",
+            "title": "May 3 (Sunday) Constitution Memorial Day"
+        },
+        {
+            "name": "May_4",
+            "title": "May 4 (Monday) Greenery Day"
+        },
+        {
+            "name": "May_5",
+            "title": "May 5 (Tuesday) Children's Day"
+        },
+        {
+            "name": "May_18",
+            "title": "May 18 (Monday)"
+        },
+        {
+            "name": "Author's_Notes",
+            "title": "Author's Notes"
+        }
+    ],
+	"translators": [
+		"EusthEnoptEron"
+	],
+	"editors": [
+		"grrarr",
+		"Kadi"
+	],
+	"authors": [
+		"Eiji Mikage"
+	],
+	"artists": [
+		"Tetsuo"
+	]
+}

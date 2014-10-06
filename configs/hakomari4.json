@@ -1,0 +1,58 @@
+{
+    "title": "Utsuro no Hako to Zero no Maria 4",
+	"project": "http://www.baka-tsuki.org/project/index.php?title=Utsuro no Hako to Zero no Maria",
+    "images": [
+        "http://www.baka-tsuki.org/project/images/1/15/UtsuroNoHako4_1.jpg",
+        "http://www.baka-tsuki.org/project/images/3/3f/UtsuroNoHako4_2.jpg",
+        "http://www.baka-tsuki.org/project/images/4/4e/UtsuroNoHako4_3.jpg",
+        "http://www.baka-tsuki.org/project/images/f/f7/UtsuroNoHako4_4.jpg",
+        "http://www.baka-tsuki.org/project/images/c/c4/UtsuroNoHako4_5.jpg",
+        "http://www.baka-tsuki.org/project/images/b/b8/UtsuroNoHako4_6.jpg"
+    ],
+    "stylesheets": ["hakomari3.css"],
+	"defaults": {
+		"prefix": "Utsuro_no_Hako:Volume4 ",
+        "entrypicture": true
+  	},
+    "pages": [
+        {
+            "name": "Game_Explanation",
+            "title": "Game Explanation",
+         	"notitle": true
+        },
+        {
+            "name": "Prologue",
+            "title": "Prologue",
+         	"notitle": true
+        },
+        {
+            "name": "Chapter1",
+            "title": "Chapter 1",
+            "notitle": true
+        },
+        {
+            "name": "Chapter2",
+            "title": "Chapter 2",
+         	"notitle": true
+        },
+        {
+            "name": "Chapter3",
+            "notitle": true,
+            "title": "Chapter 3"
+        },
+        {
+            "name": "Chapter4",
+            "title": "Chapter 4",
+            "notitle": true
+        },
+        {
+            "name": "Chapter5",
+            "title": "Chapter 5",
+           	"notitle": true
+        },
+        {
+            "name": "Author's_Notes",
+            "title": "Author's Notes"
+        }
+    ]
+}

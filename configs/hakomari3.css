@@ -1,0 +1,7 @@
+table {
+	page-break-inside: avoid;
+}
+
+h3 {
+    prince-bookmark-level: 2;
+}
