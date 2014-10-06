@@ -160,6 +160,9 @@ public class Page {
 
 			images.add(image);
 		}
+		for(Element img: dom.select("img")) {
+			img.attr("src", BakaTsuki.getAbsolute(img.attr("src")));
+		}
 
 		// Catch references
 		for (Element sup : dom.select("sup.reference"))
